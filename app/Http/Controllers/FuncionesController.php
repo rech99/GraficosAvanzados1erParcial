@@ -30,10 +30,10 @@ class FuncionesController extends Controller
         $nuevaFuncion->hora = $request->input('hora');
 
         if ($nuevaFuncion-> save()){
-            return redirect() -> route('funciones.index')-> with('success', 'Variant was added succesfully');
+            return redirect() -> route('funciones.index');
         }
 
-        return redirect() -> route('funciones.index') -> with ("error", "Could not add variant");
+        return redirect() -> route('funciones.index');
     }
 
 
@@ -43,13 +43,13 @@ class FuncionesController extends Controller
         if($funcion){
             //Si la encuentra la borra
             if($funcion->delete()){
-                return redirect()->route('funciones.index')->with ('success', 'Variant deleted');
+                return redirect()->route('funciones.index');
             }
 
-            return redirect()->route('funciones.index')->with('error', 'Could not delete variant');
+            return redirect()->route('funciones.index');
         }
 
-        return redirect()->route('funciones.index')->with('error', 'Could not find variant');
+        return redirect()->route('funciones.index');
 
     }
 
