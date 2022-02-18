@@ -7,6 +7,7 @@
     <title>Lista de funciones</title>
 </head>
 <body>
+<a href="{{route('funciones.create')}}">Añadir Funcion</a>
     <h1>Funciones</h1>
     <table>
         <thead>
@@ -23,7 +24,14 @@
                     <td>{{$funcion->pelicula}}</td>
                     <td>{{$funcion->fecha}}</td>
                     <td>{{$funcion->hora}}</td>
-                    <td><button>Eliminar</button></td>
+                    <td>
+                        <a>
+                        <form method="post" action ="{{route('funciones.destroy', $funcion->id)}}">
+                            @csrf
+                            @method('delete')
+                            <button type="submit"> Eliminar </button>
+                        </form>
+                        </a></td>
                 </tr>
             @endforeach
         </tbody>

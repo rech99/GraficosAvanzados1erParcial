@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FuncionesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,3 +14,10 @@
 */
 
 Route::get('/', 'FuncionesController@index')->name('funciones.index');
+
+Route::get('/create', 'FuncionesController@create')->name('funciones.create');
+
+Route::delete('/funciones/{id}', 'FuncionesController@destroy') -> name('funciones.destroy');
+
+Route::post('/store',
+             'FuncionesController@store')->name('funciones.store');
